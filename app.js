@@ -83,7 +83,7 @@ function editTodo(index) {
 
     let editButton = document.querySelectorAll(".editbtn")[index];
     editButton.innerText = "Save";
-    editButton.style.backgroundColor = "green"
+    editButton.style.backgroundColor = "blue"
     editButton.setAttribute("onclick" , `saveTodo(${index})`);
 }
 
@@ -114,7 +114,7 @@ function saveTodo(index) {
 
     let editButton = document.querySelectorAll(".editbtn")[index];
     editButton.innerText = "Edit";
-    editButton.style.backgroundColor = "blue"
+    editButton.style.backgroundColor = "green"
     editButton.setAttribute("onclick", `editTodo(${index})`);
 
 }

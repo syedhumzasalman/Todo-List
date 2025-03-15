@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url("https://cdn.jobsity.com/Tutorials_bbb2927425/Tutorials_bbb2927425.webp");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
+
+.jsinput {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+.deletebtn {
+  padding: 5px;
+  width: 70px;
+  border-radius: 10px;
+  background-color: rgb(184, 18, 18);
+  font-weight: bold;
+}
+
+.editbtn {
+  padding: 5px;
+  width: 70px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.input-div {
+  /* background-color: aqua; */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-div #createTask {
+  padding: 8px;
+  width: 400px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgb(153, 144, 144);
+  box-shadow: 5px 5px 10px rgb(136, 133, 133);
+}
+
+#displayTask {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#displayTask .jsinput {
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  padding: 8px;
+}
+
+.sec-div{
+  /* background-color: blue; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.sec-div p{
+  margin-bottom: 0px;
+}
+
+
+.mybtn {
+  padding: 7px;
+  width: 150px;
+  border-radius: 10px;
+  color: white;
+  background-color: blue;
+  font-weight: bold;
+}
+
+.mybtn:hover{
+    color: black;
+    background-color: white;
+}
+
+
+@media only screen and (max-width: 768px){
+  #displayTask .jsinput {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    padding: 8px;
+  }
+} 

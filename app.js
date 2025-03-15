@@ -29,8 +29,17 @@ function addTodo() {
     // console.log(createTask.value);
     // console.log(todoList);
     
-    if(createTask.value === ""){
-        return  alert("Enter Task")
+    if(createTask.value.trim() === ""){
+        Swal.fire({
+            title: "Oops!",
+            text: "Please enter a task 😇",
+            icon: "warning",
+            confirmButtonText: "OK",
+            background: "#fffbe6",
+            color: "#d33",
+            confirmButtonColor: "#ff7eb3"
+        });
+        return 
     }
 
     todoList.push(createTask.value);
@@ -83,12 +92,20 @@ function saveTodo(index) {
     // console.log("ye chala");
     
     let inputField = document.querySelectorAll(".jsinput")[index];
-    let updatedTask = inputField.value;
+    let updatedTask = inputField.value.trim();
 
     // console.log(updatedTask);
     
     if (updatedTask === "") {
-        alert("Enter Update Task");
+        Swal.fire({
+            title: "Oops!",
+            text: "Please enter a task 😇",
+            icon: "warning",
+            confirmButtonText: "OK",
+            background: "#fffbe6",
+            color: "#d33",
+            confirmButtonColor: "#ff7eb3"
+        });
         return;
     }
 

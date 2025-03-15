@@ -99,10 +99,6 @@ body {
 
 @media only screen and (max-width: 768px){
   #displayTask .jsinput {
-    background-color: aquamarine;
-    display: flex;
-    justify-content: center;
     width: 100px;
-    padding: 8px;
   }
 } 

@@ -1,119 +1,30 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+ body {
+   background-image: url('https://cdn.vectorstock.com/i/1000v/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg');
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 100vh;
+ }
 
-body {
-  height: 100%;
-  width: 100%;
-  background-image: url("https://cdn.jobsity.com/Tutorials_bbb2927425/Tutorials_bbb2927425.webp");
-  /* background-repeat: no-repeat; */
-  background-size: cover;
-}
+ .task-card {
+   transition: all 0.3s ease;
+ }
 
-.jsinput {
-  border: none;
+ .task-card:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+ }
+
+ .task-text {
+   word-break: break-word;
+ }
+
+ .jsinput {
   outline: none;
   background: transparent;
   color: white;
+  font-size: 1rem;
+  width: auto;
+  min-width: 60px;
+  height: auto;
 }
 
-.deletebtn {
-  padding: 5px;
-  width: 70px;
-  border-radius: 10px;
-  background-color: rgb(184, 18, 18);
-  font-weight: bold;
-}
-
-.editbtn {
-  padding: 5px;
-  width: 70px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-.input-div {
-  /* background-color: aqua; */
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.input-div #createTask {
-  padding: 8px;
-  width: 400px;
-  outline: none;
-  border-radius: 10px;
-  border: 1px solid rgb(153, 144, 144);
-  box-shadow: 5px 5px 10px rgb(136, 133, 133);
-}
-
-#displayTask {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#displayTask .jsinput {
-  /* background-color: aquamarine; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 400px;
-  padding: 8px;
-}
-
-.sec-div{
-  /* background-color: blue; */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.sec-div p{
-  margin-bottom: 0px;
-}
-
-
-.mybtn {
-  padding: 7px;
-  width: 150px;
-  border-radius: 10px;
-  color: white;
-  background-color: blue;
-  font-weight: bold;
-}
-
-.mybtn:hover{
-    color: black;
-    background-color: white;
-}
-
-
-@media only screen and (max-width: 768px){
-  .mybtn {
-    width: 180px;
-  }
-  #displayTask .jsinput {
-    width: 100px;
-  }
-
-  .editbtn {
-    width: 50px;
-  }
-  .sec-div{
-    margin-left: 20px;
-    justify-content: start;
-    gap: 1px;
-  }
-  #displayTask .jsinput {
-    width: 50%;
-  }
-} 

@@ -7,29 +7,62 @@ let displayTask = document.querySelector("#displayTask");
 let todoList = [];
 
 createTask.addEventListener("keydown", function (event) {
-    if(event.key === 'Enter'){
-        addTodo()   
+    if (event.key === 'Enter') {
+        addTodo()
     }
-} )
+})
 
 function taskDisplay() {
     displayTask.innerHTML = "";
 
     for (let i = 0; i < todoList.length; i++) {
-            displayTask.innerHTML += `<div class="sec-div"><p>${i+1} :</p>
-            <input class="jsinput" value = " ${todoList[i]}" readonly/>
-            <button class="deletebtn" onclick="deleteTodo(${i})">Delete</button>
-            <button class="editbtn" onclick="editTodo(${i})">Edit</button></div>`
+        displayTask.innerHTML += `
+  <div class="card shadow-sm mb-3 border-0 bg-gradient bg-dark text-white">
+    <div class="card-body d-flex justify-content-between align-items-center flex-wrap px-4 py-3">
+      
+      <div class="d-flex align-items-center flex-wrap gap-3">
+        <span class="badge rounded-pill bg-primary fs-6">${i + 1}</span>
+        <input 
+          class="jsinput bg-transparent border-0 text-white fw-medium fs-6 px-0 dynamic-input" 
+          value="${todoList[i]}" 
+          readonly 
+          oninput="autoResizeInput(this)"
+        />
+      </div>
+
+      <div class="d-flex gap-2 mt-2 mt-md-0">
+        <button class="btn btn-sm btn-outline-warning editbtn" onclick="editTodo(${i})">
+          <i class="bi bi-pencil-square me-1"></i>Edit
+        </button>
+        <button class="btn btn-sm btn-outline-danger" onclick="deleteTodo(${i})">
+          <i class="bi bi-trash me-1"></i>Delete
+        </button>
+      </div>
+
+    </div>
+  </div>
+`;
+
     }
 }
 
 
+function autoResizeInput(input) {
+    input.style.width = '1px';
+    input.style.width = input.scrollWidth + 'px';
+}
 
-function addTodo() {  
+// Call once after rendering
+setTimeout(() => {
+    document.querySelectorAll(".dynamic-input").forEach(autoResizeInput);
+}, 0);
+
+
+function addTodo() {
     // console.log(createTask.value);
     // console.log(todoList);
-    
-    if(createTask.value.trim() === ""){
+
+    if (createTask.value.trim() === "") {
         Swal.fire({
             title: "Oops!",
             text: "Please enter a task 😇",
@@ -39,24 +72,24 @@ function addTodo() {
             color: "#d33",
             confirmButtonColor: "#ff7eb3"
         });
-        return 
+        return
     }
 
     todoList.push(createTask.value);
     createTask.value = "";
-    
+
     taskDisplay()
 }
 
 
-function deleteTodo(index){
+function deleteTodo(index) {
 
-//  console.log(index);
+    //  console.log(index);
 
-todoList.splice(index, 1)
+    todoList.splice(index, 1)
 
-taskDisplay()
- 
+    taskDisplay()
+
 }
 
 // function editTodo(index){
@@ -75,7 +108,7 @@ taskDisplay()
 // }
 
 function editTodo(index) {
-    
+
     let inputField = document.querySelectorAll(".jsinput")[index];
     // console.log(inputField.value);
     inputField.removeAttribute("readonly");
@@ -83,19 +116,18 @@ function editTodo(index) {
 
     let editButton = document.querySelectorAll(".editbtn")[index];
     editButton.innerText = "Save";
-    editButton.style.backgroundColor = "blue"
-    editButton.setAttribute("onclick" , `saveTodo(${index})`);
+    editButton.setAttribute("onclick", `saveTodo(${index})`);
 }
 
 function saveTodo(index) {
 
     // console.log("ye chala");
-    
+
     let inputField = document.querySelectorAll(".jsinput")[index];
     let updatedTask = inputField.value.trim();
 
     // console.log(updatedTask);
-    
+
     if (updatedTask === "") {
         Swal.fire({
             title: "Oops!",
@@ -114,7 +146,6 @@ function saveTodo(index) {
 
     let editButton = document.querySelectorAll(".editbtn")[index];
     editButton.innerText = "Edit";
-    editButton.style.backgroundColor = "green"
     editButton.setAttribute("onclick", `editTodo(${index})`);
 
 }

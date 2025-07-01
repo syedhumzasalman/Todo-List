@@ -19,12 +19,17 @@
  }
 
  .jsinput {
-  outline: none;
-  background: transparent;
-  color: white;
-  font-size: 1rem;
-  width: auto;
-  min-width: 60px;
-  height: auto;
-}
+   border: none;
+   outline: none;
+   background: transparent;
+   color: white;
+   width: 300px;
+  }
+  
+  
+  @media only screen and (max-width : 500px) {
+    .jsinput {
+     width: 100%;
+   }
 
+ }

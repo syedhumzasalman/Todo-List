@@ -1,35 +1,7 @@
  body {
-   background-image: url('https://cdn.vectorstock.com/i/1000v/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg');
+   background-image: url('https://cdn.vectorstock.com/i/500p/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg');
    background-size: cover;
    background-attachment: fixed;
    min-height: 100vh;
  }
 
- .task-card {
-   transition: all 0.3s ease;
- }
-
- .task-card:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
- }
-
- .task-text {
-   word-break: break-word;
- }
-
- .jsinput {
-   border: none;
-   outline: none;
-   background: transparent;
-   color: white;
-   width: 300px;
-  }
-  
-  
-  @media only screen and (max-width : 500px) {
-    .jsinput {
-     width: 100%;
-   }
-
- }

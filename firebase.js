@@ -10,8 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 
-// Import firebase config
-import { firebaseConfig } from "./firebaseConfig.js";
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

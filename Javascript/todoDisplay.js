@@ -12,8 +12,8 @@ import {
 } from "../fireBase.js";
 
 let currentUser = null;
-const loader = document.getElementById("custom-loader");
 let userNameDisplay = document.getElementById("userNameDisplay");
+const loader = document.getElementById("custom-loader");
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -51,10 +51,13 @@ onAuthStateChanged(auth, async (user) => {
 let createTask = document.getElementById("createTask");
 let addTaskBtn = document.getElementById("addTaskBtn");
 let displayTask = document.getElementById("displayTask");
-
+let isAdding = false;
 
 
 let addTodo = async () => {
+  if (isAdding) return;
+  isAdding = true;
+
   let taskValue = createTask.value.trim();
 
   if (!taskValue) {
@@ -67,6 +70,7 @@ let addTodo = async () => {
       color: "#d33",
       confirmButtonColor: "#ff7eb3",
     });
+    isAdding = false;
     return;
   }
 
@@ -78,6 +82,16 @@ let addTodo = async () => {
       status: "Pending",
     };
 
+    const userTasksRef1 = collection(db, "users", currentUser.uid, "tasks");
+    const querySnapshot = await getDocs(userTasksRef1);
+    const alreadyExists = querySnapshot.docs.some(doc => doc.data().toDo === taskValue);
+
+    if (alreadyExists) {
+      Swal.fire("Duplicate!", "This task already exists 😅", "info");
+      isAdding = false;
+      return;
+    }
+
     const userTasksRef = collection(db, "users", currentUser.uid, "tasks");
     await addDoc(userTasksRef, taskObj);
     createTask.value = "";
@@ -85,6 +99,7 @@ let addTodo = async () => {
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+  isAdding = false;
 };
 
 let displayTodo = async () => {
@@ -232,6 +247,13 @@ let handleEdit = async (docId, currentText) => {
   }
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  addTaskBtn.addEventListener("click", addTodo);
+
+addTaskBtn.addEventListener("click", addTodo);
+
+
+createTask.addEventListener("keydown", function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    addTodo();
+  }
 });

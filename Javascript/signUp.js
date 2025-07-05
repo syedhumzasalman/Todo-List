@@ -11,9 +11,12 @@ import {
 } from "../fireBase.js";
 
 
+
+
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    document.getElementById("custom-loader").style.display = "none";
+    const loader = document.getElementById("custom-loader");
+    loader.style.display = "none";
     document.body.style.display = "block";
   }
 });

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <title>ToDo List SignUp</title>
+    <title>ToDo List SignIn</title>
     <link rel="stylesheet" href="./CSS/signUp.css">
 </head>
 
@@ -27,34 +27,30 @@
                 <h1 class="text-center text-white mb-5 display-4 fw-bold textS">TO-DO LIST</h1>
                 <div class="trans p-4 rounded shadow-sm">
                     <div class="mb-3">
-                        <label class="text-white fw-bold" for="userName">Enter your UserName</label>
-                        <input type="text" class="form-control" placeholder="Username" id="userName" />
+                        <label class="text-white fw-bold" for="signinEmail">Enter your Email</label>
+                        <input type="email" class="form-control" placeholder="User@gmail.com" id="signinEmail" />
                     </div>
                     <div class="mb-3">
-                        <label class="text-white fw-bold" for="signupEmail">Enter your Email</label>
-                        <input type="email" class="form-control" placeholder="User@gmail.com" id="signupEmail" />
-                    </div>
-                    <div class="mb-3">
-                        <label class="text-white fw-bold" for="signupPassword">Enter your Password</label>
-                        <input type="password" class="form-control" placeholder="*********" id="signupPassword" />
+                        <label class="text-white fw-bold" for="signinPassword">Enter your Password</label>
+                        <input type="password" class="form-control" placeholder="*********" id="signinPassword" />
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-primary" id="register">SignUp</button>
+                        <button class="btn btn-primary" id="login">SignIn</button>
                     </div>
                     <div class="text-center pt-3 d-flex justify-content-start align-items-center gap-2">
-                        <p class="mt-3 text-white">SignUp with Google</p>
+                        <p class="mt-3 text-white">SignIn with Google</p>
                         <button class="btn btn-outline-danger rounded-circle" id="googleLoginBtn">
                             <i class="fa-brands fa-google"></i>
                         </button>
                     </div>
 
-                    <p class="text-white">Already have an account? <a href="/signIn.html">Sign in</a></p>
+                     <p class="text-white">Don't have an account? <a href="/index.html">Sign up</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="./Javascript/signUp.js" type="module"></script>
+    <script src="./Javascript/signIn.js" type="module"></script>
     <script src="./Javascript/googleSignIn.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
